@@ -14,6 +14,7 @@
         <div id="addtodo">
             <h2 id="subtitle">Add to the TODO List:</h2>
             <button id="addnew">Click here to add a new item</button>
+            <button id="addlist">Click here to add a new todo list</button>
             <div id="formcontainer" class="showformcontainer">
                 <p>This is there I'll have the form to fill out to add to the list. It should be hidden until the add new button is clicked. On submit, the form will be hidden again and the item will be added with a factory function</p>
                 <p>Title</p>
@@ -30,11 +31,18 @@
                 <input type="radio" value="medium" name="priority">
                 <label for="high">High</label>
                 <input type="radio" value="high" name="priority">
-                </div>
                 
+                </div>
+                <button id="submit">Submit</button>
             </div>
         </div>
-
+        <div id="showtodos">
+            <h3>This is where the new todo items will be displayed:</h3>
+            <div id="todocontainer">
+                <p>todo1</p>
+                <p>todo2</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
