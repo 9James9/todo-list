@@ -26,6 +26,12 @@ function addTodo(){
     let todopriority = document.createElement('p')
     newcontainer.appendChild(todopriority)
     todopriority.textContent = `Priority: ${data.priority}`
+
+    let removeBtn = document.createElement('button')
+    newcontainer.appendChild(removeBtn)
+    removeBtn.textContent = "Remove"
+    removeBtn.addEventListener('click', removeTodo)
+
     clearValues()
 }
 function clearValues(){
@@ -34,6 +40,9 @@ function clearValues(){
     document.getElementById('low').checked = false
     document.getElementById('medium').checked = false
     document.getElementById('high').checked = false
+}
+function removeTodo(){
+    
 }
 export { addTodo }
 
