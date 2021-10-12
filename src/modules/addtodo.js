@@ -2,7 +2,8 @@
 function getValues(){
     return {
         title : document.querySelector('#todotitle').value,
-        description : document.querySelector('#tododescription').value
+        description : document.querySelector('#tododescription').value,
+        priority : document.getElementById('priorityradio').elements["priority"].value
     }
 }
 //create a div with the values from the input forms
@@ -21,6 +22,18 @@ function addTodo(){
     let tododescription = document.createElement('p')
     newcontainer.appendChild(tododescription)
     tododescription.textContent = data.description
+
+    let todopriority = document.createElement('p')
+    newcontainer.appendChild(todopriority)
+    todopriority.textContent = `Priority: ${data.priority}`
+    clearValues()
+}
+function clearValues(){
+    document.querySelector('#todotitle').value = ""
+    document.querySelector('#tododescription').value = ""
+    document.getElementById('low').checked = false
+    document.getElementById('medium').checked = false
+    document.getElementById('high').checked = false
 }
 export { addTodo }
 
