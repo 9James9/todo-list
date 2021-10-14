@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,20 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <title>Todo List</title>
 </head>
+
 <body>
     <h1 id="title">Todo List</h1>
     <div id="content">
         <div id="addtodo">
             <h2 id="subtitle">Add to the TODO List:</h2>
-            <button id="addnew">Click here to add a new item</button>
-            <button id="addlist">Click here to add a new todo list</button>
+            <div id="todobtns">
+                <button id="addnew">Click here to add a new item</button>
+                <button id="addlist">Click here to add a new todo list</button>
+            </div>
             <div id="formcontainer" class="showformcontainer">
-                <p>This is there I'll have the form to fill out to add to the list. It should be hidden until the add new button is clicked. On submit, the form will be hidden again and the item will be added with a factory function</p>
+                <p>This is there I'll have the form to fill out to add to the list. It should be hidden until the add
+                    new button is clicked. On submit, the form will be hidden again and the item will be added with a
+                    factory function</p>
                 <p>Title</p>
                 <input id="todotitle">
                 <p>Description</p>
@@ -24,14 +30,14 @@
                 <p>Deadline</p>
                 <p>Click to add a new date</p>
                 <form id="priorityradio">
-                <p>Priority</p>
-                <label for="low">Low</label>
-                <input id= "low" type="radio" value="Low" name="priority">
-                <label for="medium">Medium</label>
-                <input id= "medium" type="radio" value="Medium" name="priority">
-                <label for="high">High</label>
-                <input id= "high" type="radio" value="High" name="priority">
-                
+                    <p>Priority</p>
+                    <label for="low">Low</label>
+                    <input id="low" type="radio" value="Low" name="priority">
+                    <label for="medium">Medium</label>
+                    <input id="medium" type="radio" value="Medium" name="priority">
+                    <label for="high">High</label>
+                    <input id="high" type="radio" value="High" name="priority">
+
                 </form>
                 <button id="submit">Submit</button>
             </div>
@@ -45,4 +51,5 @@
         </div>
     </div>
 </body>
+
 </html>
