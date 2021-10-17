@@ -17,7 +17,16 @@
             <h2 id="subtitle">Add to the TODO List:</h2>
             <div id="todobtns">
                 <button id="addnew">Click here to add a new item</button>
-                <button id="addlist">Click here to add a new todo list</button>
+                <form action ="" data-new-list-form>
+                    <input
+                        type="text"
+                        data-new-list-input
+                        class="new list"
+                        placeholder="Add a new list"
+                        aria-label="new-list-item"
+                    />
+                    <button class="btn-create" aria-label="create new list">Create List</button>
+                </form>
             </div>
             <div id="listsandform">
                 <div id="listContainer">
