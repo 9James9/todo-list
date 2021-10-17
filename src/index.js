@@ -1,4 +1,5 @@
 import { addTodo } from "./modules/addtodo"
-import { newList } from "./modules/newlist.js"
+import { newListInput,renderList } from "./modules/newlist.js"
+renderList()
 document.querySelector('#submit').addEventListener('click',addTodo)
-document.querySelector('#addlist').addEventListener('click',newList)
+document.querySelector('#addlist').addEventListener('click',newListInput)
