@@ -1,6 +1,7 @@
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
 const LOCAL_STORAGE_LIST_KEY = `task.lists`
+const deleteListButton = document.querySelector('[data-delete-list-button]')
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 const listContainer = document.querySelector('#listContainer')
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = `task.selectedListId`
@@ -11,6 +12,11 @@ listContainer.addEventListener('click',e => {
         saveAndRender()
     }
 })
+deleteListButton.addEventListener('click', e => {
+    lists = lists.filter(list => list.id !== selectedListId)
+    selectedListId = null
+    saveAndRender()
+})
 //get values from the input forms
 function getValues() {
     return {
@@ -20,6 +26,7 @@ function getValues() {
     }
 }
 function renderList() {
+    //clears everthing and then re-renders it so the class will automatically change without having to manually remove the active list class each time
     clearElement(listContainer)
     lists.forEach(list => {
         const listElement = document.createElement('li')
@@ -72,6 +79,7 @@ function newListInput(){
 
 function save() {
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
+    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
 }
 function saveAndRender(){
     save()
