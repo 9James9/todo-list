@@ -35,7 +35,7 @@
                     <p>Title</p>
                     <input id="todotitle">
                     <p>Description</p>
-                    <input id="tododescription"
+                    <input id="tododescription">
                     <form id="priorityradio">
                         <p>Priority</p>
                         <label for="low">Low</label>
@@ -52,11 +52,27 @@
         <div id="showtodos" data-tasks>
             <h3>This is where the new todo items will be displayed:</h3>
             <div id="todocontainer">
-                <p>todo1</p>
-                <p>todo2</p>
+                <div class="task">
+                    <div id="taskandcheckbox">
+                        <input type="checkbox">
+                        <h3>Task Title</h3>
+                    </div>
+                    
+                    <p>Task Description</p>
+                    <p>Task Priority: </p>
+                </div>
+                
             </div>
         </div>
     </div>
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox">
+            <h3></h3>
+            <p></p>
+            <p></p>
+        </div>
+    </template>
 </body>
 
 </html>

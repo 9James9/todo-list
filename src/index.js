@@ -9,7 +9,7 @@ let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
 const listDisplayContainer = document.querySelector('[data-list-display-container]')
 const listTitleElement = document.querySelector('[data-list-title]')
 const tasksContainer = document.querySelector('[data-tasks]')
-
+const taskTemplate = document.querySelector('#task-template')
 listContainer.addEventListener('click',e => {
     if (e.target.tagName.toLowerCase() === 'li') {
         selectedListId = e.target.dataset.listId
@@ -38,7 +38,14 @@ function render(){
     } else {
         listDisplayContainer.style.display = ''
         listTitleElement.innerText = selectedList.name
+        clearElement(tasksContainer)
+        //renderTasks(selectedList)
     }
+}
+function renderTasks(selectedList){
+    selectedList.tasks.forEach(task => {
+    const taskElement = document.importNode(taskTemplate.content, true)
+    })
 }
 function renderList() {
     lists.forEach(list => {
