@@ -17,20 +17,18 @@
             <h2 id="subtitle">Add to the TODO List:</h2>
             <div id="todobtns">
                 <button id="addnew">Click here to add a new item</button>
-                <form action ="" data-new-list-form>
-                    <input
-                        type="text"
-                        data-new-list-input
-                        class="new list"
-                        placeholder="Add a new list"
-                        aria-label="new-list-item"
-                    />
+
+                <form action="" data-new-list-form>
+                    <input type="text" data-new-list-input class="new list" placeholder="Add a new list"
+                        aria-label="new-list-item" />
                     <button class="btn-create" aria-label="create new list">Create List</button>
+                    <button class="btn delete" data-delete-list-button>Delete List</button>
                 </form>
+
             </div>
-            <div id="listsandform">
+            <div id="listsandform" data-list-display-container>
+                <h2 class="list-title" data-list-title>List title</h2>
                 <div id="listContainer">
-                     
                 </div>
                 <div id="formcontainer" class="showformcontainer">
                     <p>This is there I'll have the form to fill out to add to the list. </p>
@@ -48,14 +46,12 @@
                         <input id="medium" type="radio" value="Medium" name="priority">
                         <label for="high">High</label>
                         <input id="high" type="radio" value="High" name="priority">
-    
                     </form>
                     <button id="submit">Submit</button>
                 </div>
             </div>
-            
         </div>
-        <div id="showtodos">
+        <div id="showtodos" data-tasks>
             <h3>This is where the new todo items will be displayed:</h3>
             <div id="todocontainer">
                 <p>todo1</p>
