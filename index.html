@@ -30,47 +30,36 @@
                 <h2 class="list-title" data-list-title>List title</h2>
                 <div id="listContainer">
                 </div>
-                <div id="formcontainer" class="showformcontainer">
-                    <p>This is there I'll have the form to fill out to add to the list. </p>
-                    <p>Title</p>
-                    <input id="todotitle">
-                    <p>Description</p>
-                    <input id="tododescription">
-                    <form id="priorityradio">
-                        <p>Priority</p>
-                        <label for="low">Low</label>
-                        <input id="low" type="radio" value="Low" name="priority">
-                        <label for="medium">Medium</label>
-                        <input id="medium" type="radio" value="Medium" name="priority">
-                        <label for="high">High</label>
-                        <input id="high" type="radio" value="High" name="priority">
-                    </form>
-                    <button id="submit">Submit</button>
-                </div>
-            </div>
-        </div>
-        <div id="showtodos" data-tasks>
-            <h3>This is where the new todo items will be displayed:</h3>
-            <div id="todocontainer">
-                <div class="task">
-                    <div id="taskandcheckbox">
-                        <input type="checkbox">
-                        <h3>Task Title</h3>
+                <form action ="" data-new-task-form>
+                    <div id="formcontainer" class="showformcontainer">
+                        <p>Title</p>
+                        <input id="todotitle" data-new-task-input class="new task" placeholder="New Task Name" aria-label="new task name">
+                        
+                        <p>Description</p>
+                        <input id="tododescription">
+                        
+                        <button id="submit" class="btn-create" aria-label="create new task">Submit</button>
                     </div>
-                    
-                    <p>Task Description</p>
-                    <p>Task Priority: </p>
-                </div>
+                </form>
+                
                 
             </div>
+        </div>
+        <div id="showtodos" >
+            <h3>This is where the new todo items will be displayed:</h3>
+            
+        </div>
+        <div class="todo body" id="todocontainer" data-tasks>
+                
+            <div class="tasks" data-tasks></div>
         </div>
     </div>
     <template id="task-template">
         <div class="task">
             <input type="checkbox">
-            <h3></h3>
-            <p></p>
-            <p></p>
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
         </div>
     </template>
 </body>
