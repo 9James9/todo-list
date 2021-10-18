@@ -12,6 +12,7 @@ const tasksContainer = document.querySelector('[data-tasks]')
 const taskTemplate = document.getElementById('task-template')
 const newTaskForm = document.querySelector('[data-new-task-form]')
 const newTaskInput = document.querySelector('[data-new-task-input]')  
+
 listContainer.addEventListener('click',e => {
     if (e.target.tagName.toLowerCase() === 'li') {
         selectedListId = e.target.dataset.listId
@@ -93,16 +94,18 @@ function renderList() {
     newTaskForm.addEventListener('submit', e => {
         e.preventDefault()
         const taskName = newTaskInput.value
+     
         if (taskName == null || taskName === "") return
         const task = createTask(taskName)
+       
         newTaskInput.value = null
         const selectedList = lists.find(list => list.id === selectedListId)
         selectedList.tasks.push(task)
-        console.log(task.name)
+        
         saveAndRender()
     })
 function createTask(name){
-    return {id: Date.now().toString(), name: name, complete: false}
+    return {id: Date.now().toString(), name: name ,complete: false}
 }
 function createList(name){
     //make object with unique id by taking the date and converting it to a string, and assign it the list name that was input
