@@ -6,6 +6,10 @@ let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 const listContainer = document.querySelector('#listContainer')
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = `task.selectedListId`
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
+const listDisplayContainer = document.querySelector('[data-list-display-container]')
+const listTitleElement = document.querySelector('[data-list-title]')
+const tasksContainer = document.querySelector('[data-tasks]')
+
 listContainer.addEventListener('click',e => {
     if (e.target.tagName.toLowerCase() === 'li') {
         selectedListId = e.target.dataset.listId
@@ -25,9 +29,18 @@ function getValues() {
         priority: document.getElementById('priorityradio').elements["priority"].value
     }
 }
-function renderList() {
-    //clears everthing and then re-renders it so the class will automatically change without having to manually remove the active list class each time
+function render(){
     clearElement(listContainer)
+    renderList()
+    const selectedList = lists.find(list => list.id === selectedListId)
+    if (selectedListId == null){
+        listDisplayContainer.style.display = 'none'
+    } else {
+        listDisplayContainer.style.display = ''
+        listTitleElement.innerText = selectedList.name
+    }
+}
+function renderList() {
     lists.forEach(list => {
         const listElement = document.createElement('li')
         listElement.dataset.listId = list.id
@@ -51,10 +64,6 @@ function renderList() {
         saveAndRender()
     })
 
-
-function addNewList(){
-        
-}
 function createList(name){
     //make object with unique id by taking the date and converting it to a string, and assign it the list name that was input
     return { id: Date.now().toString(), name: name, tasks: [] }
@@ -83,7 +92,7 @@ function save() {
 }
 function saveAndRender(){
     save()
-    renderList()
+    render()
 }
 function clearElement(element) {
     //removes the old values so there aren't duplicate lists added
