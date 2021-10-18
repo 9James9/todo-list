@@ -9,7 +9,9 @@ let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
 const listDisplayContainer = document.querySelector('[data-list-display-container]')
 const listTitleElement = document.querySelector('[data-list-title]')
 const tasksContainer = document.querySelector('[data-tasks]')
-const taskTemplate = document.querySelector('#task-template')
+const taskTemplate = document.getElementById('task-template')
+const newTaskForm = document.querySelector('[data-new-task-form]')
+const newTaskInput = document.querySelector('[data-new-task-input]')  
 listContainer.addEventListener('click',e => {
     if (e.target.tagName.toLowerCase() === 'li') {
         selectedListId = e.target.dataset.listId
@@ -21,6 +23,7 @@ deleteListButton.addEventListener('click', e => {
     selectedListId = null
     saveAndRender()
 })
+/*
 //get values from the input forms
 function getValues() {
     return {
@@ -29,23 +32,38 @@ function getValues() {
         priority: document.getElementById('priorityradio').elements["priority"].value
     }
 }
+*/
 function render(){
     clearElement(listContainer)
     renderList()
+
     const selectedList = lists.find(list => list.id === selectedListId)
     if (selectedListId == null){
-        listDisplayContainer.style.display = 'none'
+        //find out why this is making everything disappear
+        //listDisplayContainer.style.display = 'none'
     } else {
         listDisplayContainer.style.display = ''
         listTitleElement.innerText = selectedList.name
         clearElement(tasksContainer)
-        //renderTasks(selectedList)
+        renderTasks(selectedList)
     }
 }
 function renderTasks(selectedList){
     selectedList.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content, true)
+    const checkBox = taskElement.querySelector('input')
+    checkBox.id = task.id
+    checkBox.checked = task.complete
+    const label = taskElement.querySelector('label')
+    label.htmlFor = task.id
+    label.append(task.name)
+    tasksContainer.appendChild(taskElement)
+    /*
+    const taskDescription = taskElement.querySelector('.taskdescription')
+    const taskPriority = taskElement.querySelector('taskpriority')
+    */
     })
+
 }
 function renderList() {
     lists.forEach(list => {
@@ -60,8 +78,9 @@ function renderList() {
     })
 
 }
-//prevents the page from refreshing when the form is submitted
+
     newListForm.addEventListener('submit', e => {
+        //prevents the page from refreshing when the form is submitted
         e.preventDefault()
         const listName = newListInput.value
         if (listName == null || listName == "") return
@@ -71,9 +90,24 @@ function renderList() {
         saveAndRender()
     })
 
+    newTaskForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const taskName = newTaskInput.value
+        if (taskName == null || taskName === "") return
+        const task = createTask(taskName)
+        newTaskInput.value = null
+        const selectedList = lists.find(list => list.id === selectedListId)
+        selectedList.tasks.push(task)
+        console.log(task.name)
+        saveAndRender()
+    })
+function createTask(name){
+    return {id: Date.now().toString(), name: name, complete: false}
+}
 function createList(name){
     //make object with unique id by taking the date and converting it to a string, and assign it the list name that was input
     return { id: Date.now().toString(), name: name, tasks: [] }
+
 }
 
 
