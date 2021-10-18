@@ -21,3 +21,9 @@
 .active-list {
     color: red;
 }
+#taskandcheckbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -20px;
+}
