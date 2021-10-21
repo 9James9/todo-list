@@ -16,7 +16,6 @@
         <div id="addtodo">
             <h2 id="subtitle">Add to the TODO List:</h2>
             <div id="todobtns">
-                <button id="addnew">Click here to add a new item</button>
 
                 <form action="" data-new-list-form>
                     <input type="text" data-new-list-input class="new list" placeholder="Add a new list"
@@ -45,15 +44,18 @@
                 
             </div>
         </div>
-        <div id="showtodos" >
-            <h3>This is where the new todo items will be displayed:</h3>
-            <button data-clear-complete-tasks-button>Clear Completed Tasks</button>
-            
-        </div>
-        <div class="todo body" id="todocontainer" data-tasks>
+        <div id="displaycontainer">
+            <div id="showtodos" >
+                <h3>This is where the new todo items will be displayed:</h3>
+                <button class= "cleartasksbtn" data-clear-complete-tasks-button>Clear Completed Tasks</button>
                 
-            <div class="tasks" data-tasks></div>
+            </div>
+            <div class="todo body" id="todocontainer" data-tasks>
+                    
+                <div class="tasks" data-tasks></div>
+            </div>
         </div>
+        
     </div>
     <template id="task-template">
         <div class="task">

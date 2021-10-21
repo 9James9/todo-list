@@ -1,5 +1,7 @@
 #title{
-    color:red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #formcontainer {
     border: 1px solid black;
@@ -26,4 +28,26 @@
     flex-direction: row;
     align-items: center;
     margin-bottom: -20px;
+}
+#content {
+    display: flex;
+    justify-content: space-around;
+    border: 5px solid black;
+    padding: 20px;
+    background-color: antiquewhite;
+}
+html body {
+    background-color: lightskyblue;
+}
+.task {
+    display: flex;
+
+}
+.cleartasksbtn {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.todo.body{
+    background-color: salmon;
+    border: 2px solid red;
 }
