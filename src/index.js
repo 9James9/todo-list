@@ -13,6 +13,7 @@ const taskTemplate = document.getElementById('task-template')
 const newTaskForm = document.querySelector('[data-new-task-form]')
 const newTaskInput = document.querySelector('[data-new-task-input]')  
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
+const todoContainer = document.querySelector('#todocontainer')
 clearCompleteTasksButton.addEventListener('click', e => {
     const selectedList = lists.find(list => list.id === selectedListId)
     selectedList.tasks = selectedList.tasks.filter(task => !task.complete)
@@ -42,13 +43,11 @@ function getValues() {
 function render(){
     clearElement(listContainer)
     renderList()
-
     const selectedList = lists.find(list => list.id === selectedListId)
     if (selectedListId == null){
-        //find out why this is making everything disappear
-        //listDisplayContainer.style.display = 'none'
+        todoContainer.style.display = 'none'
     } else {
-        listDisplayContainer.style.display = ''
+        todoContainer.style.display = ''
         listTitleElement.innerText = selectedList.name
         clearElement(tasksContainer)
         renderTasks(selectedList)

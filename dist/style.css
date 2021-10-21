@@ -5,8 +5,8 @@
 }
 #formcontainer {
     border: 1px solid black;
-    display:none;
     background-color: aliceblue;
+    padding: 10px;
 }
 .showformcontainer{
     display:block !important;
@@ -41,7 +41,6 @@ html body {
 }
 .task {
     display: flex;
-
 }
 .cleartasksbtn {
     padding: 10px;
@@ -50,4 +49,7 @@ html body {
 .todo.body{
     background-color: salmon;
     border: 2px solid red;
+}
+.list-name {
+    font-size: 24px;
 }
