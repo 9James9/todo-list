@@ -12,7 +12,8 @@ const tasksContainer = document.querySelector('[data-tasks]')
 const taskTemplate = document.getElementById('task-template')
 const newTaskForm = document.querySelector('[data-new-task-form]')
 const newTaskInput = document.querySelector('[data-new-task-input]') 
-const newDescriptionInput = document.querySelector('[data-new-task-input-description]') 
+const newDescriptionInput = document.querySelector('[data-new-task-input-description]')
+//const newTaskPriority = document.querySelector('[data-new-task-priority]')
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
 const todoContainer = document.querySelector('#todocontainer')
 clearCompleteTasksButton.addEventListener('click', e => {
@@ -92,13 +93,19 @@ function renderList() {
         e.preventDefault()
         const taskName = newTaskInput.value
         const taskDescripton = newDescriptionInput.value
+        const taskPriority = document.querySelector('input[name="priority"]:checked').value;
+        console.log(taskPriority)
         if (taskName == null || taskName === "") return
         if (taskDescripton == null || taskDescripton === "") {
             taskDescripton = ""
         }
-        const task = createTask(taskName,taskDescripton)
+        const task = createTask(taskName,taskDescripton,taskPriority)
         newTaskInput.value = null
         newDescriptionInput.value = null
+        taskPriority.value = null
+        document.getElementById('lowpriority').checked = false
+        document.getElementById('mediumpriority').checked = false
+        document.getElementById('highpriority').checked = false
         const selectedList = lists.find(list => list.id === selectedListId)
         selectedList.tasks.push(task)
         
@@ -112,8 +119,8 @@ function renderList() {
             saveAndRender()
         }
     })
-function createTask(name,description){
-    return {id: Date.now().toString(), name: name ,description: description, complete: false}
+function createTask(name,description,priority){
+    return {id: Date.now().toString(), name: name ,description: description,priority: priority ,complete: false}
 }
 function createList(name){
     //make object with unique id by taking the date and converting it to a string, and assign it the list name that was input
