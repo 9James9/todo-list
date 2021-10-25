@@ -11,7 +11,8 @@ const listTitleElement = document.querySelector('[data-list-title]')
 const tasksContainer = document.querySelector('[data-tasks]')
 const taskTemplate = document.getElementById('task-template')
 const newTaskForm = document.querySelector('[data-new-task-form]')
-const newTaskInput = document.querySelector('[data-new-task-input]')  
+const newTaskInput = document.querySelector('[data-new-task-input]') 
+const newDescriptionInput = document.querySelector('[data-new-task-input-description]') 
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
 const todoContainer = document.querySelector('#todocontainer')
 clearCompleteTasksButton.addEventListener('click', e => {
@@ -51,9 +52,24 @@ function renderTasks(selectedList){
     checkBox.id = task.id
     checkBox.checked = task.complete
     const label = taskElement.querySelector('label')
+    //const taskTitle = taskTemplate.querySelector('#task-title')
+    //const taskDescription = taskTemplate.querySelector('#task-description')
+    //taskTitle.textContent = task.name
+    //taskDescription.textContent = task.description
     label.htmlFor = task.id
-    label.append(task.name)
+    //label.append(task.name)
+    const taskTitle = document.createElement('h3')
+    const taskDescription = document.createElement('p')
+    taskDescription.textContent = task.description
+    taskTitle.textContent = task.name
+    label.appendChild(taskTitle)
+    label.appendChild(taskDescription)
+    /*if (task.description !== null || task.description !== "") {
+        label.append(task.description)
+    }
+    */
     tasksContainer.appendChild(taskElement)
+    //console.log(task.description)
     /*
     const taskDescription = taskElement.querySelector('.taskdescription')
     const taskPriority = taskElement.querySelector('taskpriority')
@@ -89,11 +105,14 @@ function renderList() {
     newTaskForm.addEventListener('submit', e => {
         e.preventDefault()
         const taskName = newTaskInput.value
-     
+        const taskDescripton = newDescriptionInput.value
         if (taskName == null || taskName === "") return
-        const task = createTask(taskName)
-       
+        if (taskDescripton == null || taskDescripton === "") {
+            taskDescripton = ""
+        }
+        const task = createTask(taskName,taskDescripton)
         newTaskInput.value = null
+        newDescriptionInput.value = null
         const selectedList = lists.find(list => list.id === selectedListId)
         selectedList.tasks.push(task)
         
@@ -107,8 +126,8 @@ function renderList() {
             saveAndRender()
         }
     })
-function createTask(name){
-    return {id: Date.now().toString(), name: name ,complete: false}
+function createTask(name,description){
+    return {id: Date.now().toString(), name: name ,description: description, complete: false}
 }
 function createList(name){
     //make object with unique id by taking the date and converting it to a string, and assign it the list name that was input

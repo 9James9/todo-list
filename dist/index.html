@@ -35,7 +35,7 @@
                         <input id="todotitle" data-new-task-input class="new task" placeholder="New Task Name" aria-label="new task name">
                         
                         <p>Description</p>
-                        <input id="tododescription" data-new-task-input-description>
+                        <input id="tododescription" class="new description" data-new-task-input-description>
                         
                         <button id="submit" class="btn-create" aria-label="create new task">Submit</button>
                     </div>
@@ -61,7 +61,8 @@
         <div class="task">
             <div>
                 <input type="checkbox">
-                <h3></h3>
+                <h3 id="task-title"></h3>
+                <p id="task-description"></p>
             </div>
             
             <label>
