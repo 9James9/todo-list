@@ -52,28 +52,14 @@ function renderTasks(selectedList){
     checkBox.id = task.id
     checkBox.checked = task.complete
     const label = taskElement.querySelector('label')
-    //const taskTitle = taskTemplate.querySelector('#task-title')
-    //const taskDescription = taskTemplate.querySelector('#task-description')
-    //taskTitle.textContent = task.name
-    //taskDescription.textContent = task.description
     label.htmlFor = task.id
-    //label.append(task.name)
     const taskTitle = document.createElement('h3')
     const taskDescription = document.createElement('p')
     taskDescription.textContent = task.description
     taskTitle.textContent = task.name
     label.appendChild(taskTitle)
     label.appendChild(taskDescription)
-    /*if (task.description !== null || task.description !== "") {
-        label.append(task.description)
-    }
-    */
     tasksContainer.appendChild(taskElement)
-    //console.log(task.description)
-    /*
-    const taskDescription = taskElement.querySelector('.taskdescription')
-    const taskPriority = taskElement.querySelector('taskpriority')
-    */
     })
 
 }
