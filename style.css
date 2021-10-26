@@ -95,3 +95,9 @@ html body {
     height: 75px;
     word-break: break-all;
 }
+button {
+    cursor: pointer;
+}
+.checkbox {
+    cursor: pointer;
+}
