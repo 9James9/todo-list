@@ -53,6 +53,7 @@ function renderTasks(selectedList) {
     selectedList.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true)
         const checkBox = taskElement.querySelector('input')
+        checkBox.classList.add('checkbox')
         checkBox.id = task.id
         checkBox.checked = task.complete
         const label = taskElement.querySelector('label')
