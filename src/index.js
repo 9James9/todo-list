@@ -100,7 +100,7 @@ newTaskForm.addEventListener('submit', e => {
     const taskName = newTaskInput.value
     const taskDescripton = newDescriptionInput.value
     const taskPriority = document.querySelector('input[name="priority"]:checked').value;
-    console.log(taskPriority)
+    //console.log(taskPriority)
     if (taskName == null || taskName === "") return
     if (taskDescripton == null || taskDescripton === "") {
         taskDescripton = ""
@@ -176,11 +176,8 @@ function addClasses() {
         } else if (selectedList.tasks[i].priority == 'High') {
             tasks[i].classList.add('high-priority-task')
         }
-        //tasks[i].classList.add('test')
-
     }
 }
 renderList()
 saveAndRender()
 addClasses()
-//TODO: the add low medium and high priority classes to tasks that will change the colors
