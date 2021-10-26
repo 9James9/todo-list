@@ -57,3 +57,12 @@ html body {
     font-size: 28px;
     text-align: center;
 }
+.low-priority-task {
+    background-color: green !important;
+}
+.medium-priority-task {
+    background-color: orange !important;
+}
+.high-priority-task {
+    background-color: red !important;
+}

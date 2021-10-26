@@ -45,8 +45,10 @@ function render(){
         clearElement(tasksContainer)
         renderTasks(selectedList)
     }
+    addClasses()
 }
 function renderTasks(selectedList){
+    
     selectedList.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content, true)
     const checkBox = taskElement.querySelector('input')
@@ -61,8 +63,9 @@ function renderTasks(selectedList){
     label.appendChild(taskTitle)
     label.appendChild(taskDescription)
     tasksContainer.appendChild(taskElement)
+    
     })
-
+   
 }
 function renderList() {
     lists.forEach(list => {
@@ -108,7 +111,6 @@ function renderList() {
         document.getElementById('highpriority').checked = false
         const selectedList = lists.find(list => list.id === selectedListId)
         selectedList.tasks.push(task)
-        
         saveAndRender()
     })
     tasksContainer.addEventListener('click', e => {
@@ -133,6 +135,7 @@ function save() {
     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
 }
 function saveAndRender(){
+    
     save()
     render()
 }
@@ -142,6 +145,24 @@ function clearElement(element) {
         element.removeChild(element.firstChild)
     }
 }
+function addClasses(){
 
+    const selectedList = lists.find(list => list.id === selectedListId)
+    //loop through selected list and assign classes for priorities to change the color
+    const tasks = document.querySelectorAll('div.task')
+    for (let i = 0; i < tasks.length; i++) {
+        if (selectedList.tasks[i].priority == 'Low') {
+            tasks[i].classList.add('low-priority-task')
+        } else if (selectedList.tasks[i].priority == 'Medium') {
+            tasks[i].classList.add('medium-priority-task')
+        } else if (selectedList.tasks[i].priority == 'High') {
+            tasks[i].classList.add('high-priority-task')
+        }
+        //tasks[i].classList.add('test')
+        
+    }
+}
 renderList()
 saveAndRender()
+addClasses()
+//TODO: the add low medium and high priority classes to tasks that will change the colors
