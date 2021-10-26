@@ -1,34 +1,42 @@
-#title{
+#title {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #formcontainer {
     border: 1px solid black;
     background-color: aliceblue;
     padding: 10px;
 }
-.showformcontainer{
-    display:block !important;
+
+.showformcontainer {
+    display: block !important;
 }
-#priorityradio{
-    border:1px solid black;
+
+#priorityradio {
+    border: 1px solid black;
     padding: 10px;
 }
-.todobox{
+
+.todobox {
     border: 1px solid black;
     padding: 10px;
     margin: 10px;
 }
+
 .active-list {
     color: red;
+    background-color: aliceblue;
 }
+
 #taskandcheckbox {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: -20px;
 }
+
 #content {
     display: flex;
     justify-content: space-around;
@@ -36,33 +44,48 @@
     padding: 20px;
     background-color: antiquewhite;
 }
+
 html body {
     background-color: lightskyblue;
 }
+
 .task {
     display: flex;
 }
+
 .cleartasksbtn {
     padding: 10px;
     margin-bottom: 10px;
 }
-.todo.body{
+
+.todo.body {
     background-color: salmon;
     width: 30vw;
 }
+
 .list-name {
     font-size: 24px;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 5px;
 }
+
 .list-title {
     font-size: 28px;
     text-align: center;
 }
+
 .low-priority-task {
     background-color: green !important;
 }
+
 .medium-priority-task {
     background-color: orange !important;
 }
+
 .high-priority-task {
     background-color: red !important;
+}
+.radiobtn {
+    cursor: pointer;
 }

@@ -16,57 +16,50 @@
         <div id="addtodo">
             <h2 id="subtitle">Add to the TODO List:</h2>
             <div id="todobtns">
-
                 <form action="" data-new-list-form>
                     <input type="text" data-new-list-input class="new list" placeholder="Add a new list"
                         aria-label="new-list-item" />
                     <button class="btn-create" aria-label="create new list">Create List</button>
                     <button class="btn delete" data-delete-list-button>Delete List</button>
                 </form>
-
             </div>
             <div id="listsandform" data-list-display-container>
                 <h2>Your lists:</h2>
                 <div id="listContainer">
                 </div>
-                <form action ="" data-new-task-form>
+                <form action="" data-new-task-form>
                     <div id="formcontainer" class="showformcontainer">
                         <p>Title</p>
-                        <input id="todotitle" data-new-task-input class="new task" placeholder="New Task Name" aria-label="new task name">
-                        
+                        <input id="todotitle" data-new-task-input class="new task" placeholder="New Task Name"
+                            aria-label="new task name">
+
                         <p>Description</p>
-                        <input id="tododescription" class="new description" data-new-task-input-description>
-                        
-                            <form data-new-task-priority>
-                                <h2>Priority</h2>
-                                <p>Low</p>
-                                <input id="lowpriority" type="radio" name="priority" value ="Low">
-                                <p>Medium</p>
-                                <input id="mediumpriority" type="radio" name="priority" value ="Medium">
-                                <p>High</p>
-                                <input id="highpriority" type="radio" name="priority" value ="High">
-                            </form>
-                            
-                        
-                        <button id="submit" class="btn-create" aria-label="create new task">Submit</button>
+                        <input id="tododescription" class="new description" placeholder="Task Description"
+                            data-new-task-input-description>
+
+                        <form data-new-task-priority>
+                            <h2>Priority</h2>
+                            <p>Low</p>
+                            <input id="lowpriority" type="radio" name="priority" value="Low" class="radiobtn">
+                            <p>Medium</p>
+                            <input id="mediumpriority" type="radio" name="priority" value="Medium" class="radiobtn">
+                            <p>High</p>
+                            <input id="highpriority" type="radio" name="priority" value="High" class="radiobtn">
+                        </form>
+                        <button id="submit" class="btn-create" aria-label="create new task">Add task</button>
                     </div>
                 </form>
-                
-                
             </div>
         </div>
         <div id="displaycontainer">
-            <div id="showtodos" >
+            <div id="showtodos">
                 <h2 class="list-title" data-list-title>This is where the new todo items will be displayed:</h2>
-                <button class= "cleartasksbtn" data-clear-complete-tasks-button>Clear Completed Tasks</button>
-                
+                <button class="cleartasksbtn" data-clear-complete-tasks-button>Clear Completed Tasks</button>
             </div>
             <div class="todo body" id="todocontainer" data-tasks>
-                    
                 <div class="tasks" data-tasks></div>
             </div>
         </div>
-        
     </div>
     <template id="task-template">
         <div class="task">
@@ -75,7 +68,7 @@
                 <h3 id="task-title"></h3>
                 <p id="task-description"></p>
             </div>
-            
+
             <label>
                 <span class="custom-checkbox"></span>
             </label>
