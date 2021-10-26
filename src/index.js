@@ -28,9 +28,12 @@ listContainer.addEventListener('click', e => {
     }
 })
 deleteListButton.addEventListener('click', e => {
-    lists = lists.filter(list => list.id !== selectedListId)
-    selectedListId = null
-    saveAndRender()
+    if (prompt('Are you sure? Type "yes" to delete this list') == 'yes') {
+        lists = lists.filter(list => list.id !== selectedListId)
+        selectedListId = null
+        saveAndRender()
+    } else return
+    
 })
 
 function render() {
