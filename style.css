@@ -77,14 +77,17 @@ html body {
 
 .low-priority-task {
     background-color: green !important;
+    border-bottom: 2px solid black;
 }
 
 .medium-priority-task {
     background-color: orange !important;
+    border-bottom: 2px solid black;
 }
 
 .high-priority-task {
     background-color: red !important;
+    border-bottom: 2px solid black;
 }
 .radiobtn {
     cursor: pointer;
@@ -100,4 +103,8 @@ button {
 }
 .checkbox {
     cursor: pointer;
+}
+.checkboxcontainer {
+    display: flex;
+    align-items: center;
 }
