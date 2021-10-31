@@ -6,7 +6,7 @@ let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 const listContainer = document.querySelector('#listContainer')
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = `task.selectedListId`
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
-const listDisplayContainer = document.querySelector('[data-list-display-container]')
+//const listDisplayContainer = document.querySelector('[data-list-display-container]')
 const listTitleElement = document.querySelector('[data-list-title]')
 const tasksContainer = document.querySelector('[data-tasks]')
 const taskTemplate = document.getElementById('task-template')
@@ -16,7 +16,7 @@ const newDescriptionInput = document.querySelector('[data-new-task-input-descrip
 //const newTaskPriority = document.querySelector('[data-new-task-priority]')
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
 const todoContainer = document.querySelector('#todocontainer')
-clearCompleteTasksButton.addEventListener('click', e => {
+clearCompleteTasksButton.addEventListener('click', () => {
     const selectedList = lists.find(list => list.id === selectedListId)
     selectedList.tasks = selectedList.tasks.filter(task => !task.complete)
     saveAndRender()
@@ -27,7 +27,7 @@ listContainer.addEventListener('click', e => {
         saveAndRender()
     }
 })
-deleteListButton.addEventListener('click', e => {
+deleteListButton.addEventListener('click', () => {
     if (prompt('Are you sure? Type "yes" to delete this list') == 'yes') {
         lists = lists.filter(list => list.id !== selectedListId)
         selectedListId = null
@@ -101,7 +101,7 @@ newListForm.addEventListener('submit', e => {
 newTaskForm.addEventListener('submit', e => {
     e.preventDefault()
     const taskName = newTaskInput.value
-    const taskDescripton = newDescriptionInput.value
+    let taskDescripton = newDescriptionInput.value
     const taskPriority = document.querySelector('input[name="priority"]:checked').value;
     //console.log(taskPriority)
     if (taskName == null || taskName === "") return
